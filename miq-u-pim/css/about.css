@@ -1,0 +1,472 @@
+.m-plus-rounded-1c-bold {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Adobe Fonts やローカルで読み込んだLithos Pro Blackフォントの指定 */
+@font-face {
+  font-family: "lithos-pro", sans-serif;
+  src: url('path/to/LithosProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+header h3 {
+  font-family: "lithos-pro", sans-serif; /* Lithos Pro Black フォント */
+  font-size: 1.9rem;
+  margin: 0;
+}
+
+/* デフォルト（モバイル・タブレット用）のスタイル */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  margin: 0;
+  padding: 0 20px; /* 画面幅が狭いときに左右に余白を追加 */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  border: 1px solid #baafa3;
+  padding: 8px;
+  text-align: left;
+}
+
+.about-box {
+  border: 2px solid #baafa3;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px; /* デスクトップで左右の余白を追加 */
+}
+
+/* 画面幅が768px以上のデバイスに適用 */
+@media screen and (min-width: 768px) {
+  body {
+    padding: 0 50px; /* 左右の余白を広げる */
+  }
+
+  table {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+/* 画面幅が1024px以上のデバイスに適用 (デスクトップモニターサイズ) */
+@media screen and (min-width: 1024px) {
+  /* ボディに適用: 横幅50%、中央寄せ */
+  body {
+    width: 50%; /* 横幅を50%に設定 */
+    margin: 0 auto; /* 中央に寄せる */
+  }
+
+  /* 表の横並び表示 */
+  .experience-content, .profile-buttons {
+    display: flex;
+    flex-wrap: wrap; /* アイテムが横並びになる */
+    gap: 20px; /* アイテム間にスペースを追加 */
+  }
+
+  .experience-item {
+    display: flex; /* フレックスボックスを使用 */
+    flex-direction: column; /* 縦並びに変更 */
+    width: 100%; /* 縦並びにするため、横幅100%に設定 */
+    box-sizing: border-box;
+  }
+
+  .about-box, .profile-box {
+    margin-left: 20px;
+    margin-right: 20px; /* 画面幅に応じて左右の余白を追加 */
+  }
+
+  /* 小さい表（3つずつ横並び） */
+  table {
+    width: 50%; /* 表を横に3つ並べる */
+    margin-right: 20px;
+  }
+
+  /* .skills の設定: 2つ並べる */
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* アイテム間にスペースを追加 */
+  }
+
+  .skill {
+    flex: 1 1 48%; /* 2つ並べる (50%以下の幅) */
+    box-sizing: border-box;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  border: 1px solid #baafa3;
+  padding: 8px;
+  text-align: center; /* センター揃え */
+  font-size: 14px; /* 文字サイズを小さく */
+}
+
+table th {
+  border: 1px solid #e9e3de;
+  padding: 8px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #333333;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box; /* これでパディングを含めた幅を設定 */
+}
+
+h1 {
+  font-size: 2rem;
+  color: #baafa3;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+h1.small-heading {
+  font-size: 1.5rem;
+}
+
+.about-box {
+  border: 2px solid #baafa3;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.aboutpic img {
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  margin: 20px auto;
+  margin-bottom: -8px;
+  animation: swing 3.5s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.topname {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #baafa3;
+}
+
+.about p {
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #baafa3;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* hobby Box */
+.hobby-box {
+  border: 2px solid #baafa3;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.hobby-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #baafa3;
+  margin-bottom: 20px;
+}
+
+/* ボタン風のデザイン */
+.hobby-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* ボタン間の間隔を調整 */
+  flex-wrap: wrap;
+}
+
+.hobby-button {
+  background-color: #baafa3;
+  color: #fff;
+  border: 2px solid #baafa3; /* 同じ色でボーダーをつける */
+  padding: 7px 14px; /* ボタンのサイズをさらに小さく */
+  font-size: 0.9rem; /* フォントサイズをさらに小さく */
+  font-weight: 600;
+  border-radius: 50px; /* 丸みのある形にする */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hobby-button:focus {
+  outline: none;
+}
+
+/* ボタンと説明文の間に余白を追加 */
+.hobby-buttons + .description {
+  margin-top: 23px; /* 説明文とボタンの間に20pxの余白 */
+}
+
+/* 説明文のスタイル */
+.description {
+  font-size: 1rem;
+  color: #666; /* 職務経歴と同じカラーコードに設定 */
+  background-color: rgba(186, 175, 163, 0.1); /* 軽い背景色を追加 */
+  border-left: 4px solid #baafa3; /* 左側にラインを追加 */
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 5px; /* 角丸をつけてオシャレに */
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 数字部分のスタイル */
+.number {
+  color: #b1a191; /* 数字の色を指定 */
+  font-weight: bold; /* 数字を太字に */
+}
+
+.description:first-child {
+  margin-top: 0; /* 最初の説明文はトップマージンなし */
+}
+
+/* 職務経歴セクション */
+.experience {
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.experience .subtitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #baafa3;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.experience-content {
+  padding: 20px;
+}
+
+.experience-item {
+  margin-bottom: 30px;
+}
+
+.experience-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #baafa3;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #baafa3;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+.experience-text {
+  font-size: 0.95rem; /* 少し小さく設定 */
+  color: #666; /* 同じ文字色 */
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.experience-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+.experience-list li {
+  margin-bottom: 15px;
+  padding-left: 40px;
+  position: relative;
+  font-size: 1rem; /* 少し小さく設定 */
+  font-weight: 400;
+  color: #666;
+}
+
+.experience-list li .number-circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: #baafa3;
+  font-weight: 700;
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  line-height: 1.6rem;
+  text-align: center;
+  vertical-align: middle; /* 数字と文字の縦のずれを調整 */
+}
+
+/* ①の前に表示される中点（・）を削除 */
+.experience-list li::before {
+  content: ''; /* 中点（・）を表示しない */
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background-color: transparent; /* 背景を透明に */
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+}
+
+th {
+  background-color: #baafa3;
+  color: white;
+  font-weight: 600;
+  border-right: 1px solid #ddd; /* 日付と 言語の間に枠線を追加 */
+}
+
+th:last-child {
+  border-right: none; /* 最後のthは枠線を除外 */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #ebe6e0;
+}
+
+td {
+  border: 1px solid #ddd;
+}
+
+.skill {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* この行は他の要素に対して中央揃えなので、変更しない */
+}
+
+.skill h2 {
+  font-size: 1.5rem;
+  color: #baafa3;
+}
+
+.skill p {
+  font-size: 1rem;
+  color: #666;
+  text-align: left; /* 左揃え */
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.top-link {
+  background-color: #e3e3e3;
+  color: #333333;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.top-link:hover {
+  background-color: #baafa3;
+  transform: scale(1.05);
+}
+
+.top-link:active {
+  transform: scale(1);
+}
+
+.footer {
+  background: #333333;
+  color: #fff;
+  width: 100%; /* フッターの横幅を100%に設定 */
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-style: normal;
+  position: relative;
+}
+
+.footer:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* 横幅いっぱいにラインを表示 */
+  border-top: 2px solid #ddd; /* 横幅いっぱいのライン */
+}

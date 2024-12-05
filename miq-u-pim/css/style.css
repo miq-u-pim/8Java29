@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+/* 基本のスタイル */
+body {
+  background: #f1f3f4;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-style: normal;
+  margin: 0;  /* 余白をリセット */
+  padding: 0; /* 余白をリセット */
+}
+
+/* Adobe Fonts やローカルで読み込んだLithos Pro Blackフォントの指定 */
+@font-face {
+  font-family: "lithos-pro", sans-serif;
+  src: url('path/to/LithosProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+header h1 {
+  font-family: "lithos-pro", sans-serif; /* Lithos Pro Black フォント */
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+/* Header */
+.header {
+  color: white;
+  background-color: #333333;  /* ヘッダーの背景色 */
+  height: 120px;               /* ヘッダーの縦幅を長く設定 */
+  width: 120%;                 /* ヘッダーの幅を広げる */
+  margin-left: -10%;           /* ヘッダーを中央寄せにするために左に10%のマージンを追加 */
+  margin: 0;                   /* 中央揃えを解除 */
+}
+
+/* Footer */
+.footer {
+  background: #333333;
+  color: #fff;
+  width: 100%;              /* 横幅を100%に設定 */
+  padding: 20px 0;          /* 上下の余白を調整 */
+  text-align: center;       /* テキストを中央揃え */
+  font-family: 'M PLUS Rounded 1c', sans-serif; /* フォントを変更 */
+  font-style: normal;
+  transform: none; /* フッター文字の斜めをやめるためにtransformを解除 */
+}
+
+/* Flexboxで画像を横並びに */
+.image-container {
+  display: flex;
+  justify-content: space-between; /* 画像の間隔を均等に */
+  margin-top: 20px;
+  gap: 15px; /* 画像間のスペースを少し狭く設定 */
+}
+
+/* 画像のスタイル */
+.image-container a {
+  display: block; /* 画像をブロック要素として扱う */
+  margin-left: 5px; /* 画像間の左右の余白を5pxに設定 */
+  margin-right: 5px; /* 画像間の左右の余白を5pxに設定 */
+}
+
+.image-container img {
+  width: 100%; /* 画像が親要素に合わせて横幅を広げる */
+  height: auto; /* 高さを自動調整 */
+  border-radius: 8px; /* 角を丸くする */
+  cursor: pointer; /* クリック可能なカーソル */
+  transition: transform 0.3s ease; /* 画像をクリックしたときに少し拡大する */
+}
+
+/* 画像にホバー時のエフェクト */
+.image-container img:hover {
+  transform: scale(1.05); /* ホバー時に画像を少し拡大 (比率を小さく変更) */
+}
+
+/* モニターサイズの修正 */
+@media (min-width: 1024px) {
+  /* 画像をさらに大きくする */
+  .image-container a {
+    width: 38%; /* 各画像の幅をより大きく設定 */
+  }
+
+  /* 画像間の余白を無くす */
+  .image-container {
+    gap: 0px; /* 画像間の隙間を無くす */
+    margin-top: 18px; /* 上部に30pxの余白を追加 */
+    margin-bottom: 10px; /* 下部に30pxの余白を追加 */
+  }
+
+  /* 画像の左右に5pxの余白を追加 */
+  .image-container a {
+    margin-left: 10px; /* 左側に余白 */
+    margin-right: 10px; /* 右側に余白 */
+  }
+
+  /* 左の画像の左側にさらに5pxの余白を追加 */
+  .image-container a:first-child {
+    margin-left: 20px; /* 左側の余白にさらに5px追加 */
+  }
+
+  /* 右の画像の右側にさらに5pxの余白を追加 */
+  .image-container a:last-child {
+    margin-right: 20px; /* 右側の余白にさらに5px追加 */
+  }
+}
+
+/* スマートフォンサイズ */
+@media (max-width: 600px) {
+  /* 画像を縦並びにし、ページ幅に合わせる */
+  .image-container {
+    flex-direction: column; /* 縦並びに変更 */
+    gap: 20px; /* 間隔を調整 */
+    align-items: center; /* 画像を中央に配置 */
+  }
+
+  .image-container a {
+    width: 90%; /* 画像をページ幅に合わせる */
+  }
+
+  .image-container img {
+    width: 100%; /* 画像の幅を100%に */
+    margin: 0 auto; /* 画像を中央に配置 */
+  }
+
+  /* 1枚目の画像上部に余白を追加 */
+  .image-container a:nth-child(1) img {
+    margin-top: 7px; /* 1枚目の画像上部に7pxの余白を追加 */
+  }
+
+  /* 3枚目の画像下に余白を追加 */
+  .image-container a:nth-child(3) {
+    margin-bottom: 20px; /* 1枚目の画像の上部と同じ幅の余白を作成 */
+  }
+
+  /* ヘッダー */
+  .header {
+    height: 120px; /* ヘッダーの高さを調整 */
+  }
+}
