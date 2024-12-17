@@ -1,3 +1,14 @@
+/* 基本設定 */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f1f3f4;
+  overflow-x: hidden;
+}
+
+/* 共通フォント設定 */
 /* M PLUS Rounded 1c フォント設定 */
 .m-plus-rounded-1c-bold {
   font-family: "M PLUS Rounded 1c", sans-serif;
@@ -13,6 +24,8 @@
   font-style: normal;
 }
 
+/* レイアウト */
+
 /* ヘッダー */
 header {
   background-color: #333333;
@@ -22,148 +35,101 @@ header {
 }
 
 header h1 {
-  font-family: "lithos-pro", sans-serif; /* Lithos Pro Black フォント */
-  font-size: 1.7rem;
+  font-family: "lithos-pro", sans-serif;
+  font-size: 1.5rem;
   margin: 0;
-}
-
-/* 基本設定 */
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  background-color: #f1f3f4;
-  overflow-x: hidden; /* 横スクロールを無効にする */
-}
-
-/* 制作過程の前で改行を入れるためのスタイル */
-.line-break {
-  display: inline-block;
-  margin-top: 10px;
-}
-
-/* スマホサイズ対応 */
-@media (max-width: 932px) {
-  h1 {
-    font-size: 28px;
-  }
-
-  .line-break {
-    display: block;  /* スマホサイズで改行を強制 */
-    margin-top: 10px;
-  }
 }
 
 /* h2のデザイン */
 h2 {
-  font-size: 24px;
-  font-weight: 600; /* フォントを太く */
-  color: #a08f7c; /* 色を #baafa3 に設定 */
+  display: inline-block;
   text-align: center;
-  position: relative; /* 擬似要素の位置を調整 */
-  padding: 20px 0; /* 上下のパディングを設定 */
-  margin-bottom: 30px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin: 20px auto 30px;
+  background: linear-gradient(135deg, #baafa3, #8d7363);
+  border-radius: 50px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-h2::before,
-h2::after {
-  content: ''; /* 擬似要素にコンテンツなし */
-  position: absolute;
-  bottom: 0; /* 下部に配置 */
-  width: 30%; /* ラインの長さ */
-  height: 3px; /* ラインの高さ */
-  background-color: #baafa3; /* ラインの色 */
-  transition: all 0.3s ease; /* スムーズなトランジション */
-}
-
-h2::before {
-  left: 0; /* 左側のライン */
-}
-
-h2::after {
-  right: 0; /* 右側のライン */
-}
-
-/* ホバー時のエフェクト */
-h2:hover::before,
 h2:hover::after {
-  width: 50%; /* ホバー時にラインを広げる */
+  width: 100px;
 }
 
+/* セクション設定 */
 .section {
   margin: 40px 20px;
   width: 100%;
 }
 
+/* 画像設定 */
+img {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 画像ギャラリー */
 .image-gallery {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px; /* モニターサイズでの画像間の余白 */
-  padding: 0 20px; /* 左右の余白を追加 */
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
 }
 
 .image-gallery img {
-  width: calc(33.33% - 10px);
+  width: auto;
+  max-width: 100%;
   height: auto;
-  margin-bottom: 20px; /* 画像下の余白 */
-  margin-left: -28px;    /* 左側の余白を狭く設定 */
-  margin-right: 10px;  /* 右側の余白はそのまま 10px */
+  margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-gallery-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+}
+
+.image-gallery-horizontal img {
+  width: calc(33.33% - 20px);
   max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* モニターサイズ対応 */
-@media (min-width: 933px) {
-  .image-gallery {
-    gap: 30px; /* 画像間の余白をモニターサイズで増加 */
-    padding: 0 40px; /* 画像ギャラリーの左右に余白を追加 */
-  }
-}
-
-/* スマホサイズ対応 */
-@media (max-width: 932px) {
-  h1 {
-    font-size: 28px;
-  }
-  h2 {
-    font-size: 20px;
-    margin-bottom: 20px; /* スマホでの下の余白を調整 */
-  }
-  .image-gallery {
-    flex-direction: column; /* 画像を縦並びに変更 */
-    align-items: center;     /* 画像を中央に配置 */
-    gap: 10px;               /* 画像の間隔を小さめに設定 */
-    padding: 0;              /* スマホでの左右の余白を削除 */
-  }
-  .image-gallery img {
-    width: 95%;               /* 画像の幅を調整 */
-    object-fit: contain;      /* 画像を収めるように調整 */
-  }
-  .top-link {
-    margin-top: 20px;
-  }
+/* 画像を一回り小さく表示 */
+.image-gallery-small img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
 /* Footer */
 .footer {
   background: #333333;
   color: #fff;
-  width: 100%;              /* 横幅を100%に設定 */
-  padding: 20px 0;          /* 上下の余白を調整 */
-  text-align: center;       /* テキストを中央揃え */
-  font-family: 'M PLUS Rounded 1c', sans-serif; /* フォントを変更 */
-  font-style: normal;
-  transform: none; /* フッター文字の斜めをやめるためにtransformを解除 */
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-/* TOPに戻るボタン */
 footer {
   text-align: center;
   margin-top: 40px;
@@ -188,4 +154,59 @@ footer {
 
 .top-link:active {
   transform: scale(1);
+}
+
+/* メディアクエリ */
+
+/* モニター用 */
+@media (min-width: 933px) {
+  .image-gallery-small img {
+    transform: scale(0.8);
+    margin: 10px;
+  }
+}
+
+/* スマホサイズ対応 */
+@media (max-width: 932px) {
+  .image-gallery-small img {
+    max-width: 100%;
+    transform: none;
+  }
+
+  .image-gallery-horizontal {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .image-gallery-horizontal img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+    padding: 8px 15px;
+    margin: 15px 0 20px;
+  }
+
+  h2::after {
+    bottom: -5px;
+    height: 3px;
+  }
+
+  .image-gallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .image-gallery img {
+    width: 100%;
+    object-fit: contain;
+  }
 }

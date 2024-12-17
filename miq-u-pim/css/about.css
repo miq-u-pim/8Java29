@@ -238,8 +238,8 @@ h1.small-heading {
   background-color: #baafa3;
   color: #fff;
   border: 2px solid #baafa3; /* 同じ色でボーダーをつける */
-  padding: 7px 14px; /* ボタンのサイズをさらに小さく */
-  font-size: 0.7rem; /* フォントサイズをさらに小さく */
+  padding: 5px 10px; /* ボタンのサイズをさらに小さく */
+  font-size: 0.9rem; /* フォントサイズをさらに小さく */
   font-weight: 600;
   border-radius: 50px; /* 丸みのある形にする */
   cursor: pointer;
@@ -257,7 +257,7 @@ h1.small-heading {
 
 /* 説明文のスタイル */
 .description {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: #666; /* 職務経歴と同じカラーコードに設定 */
   background-color: rgba(186, 175, 163, 0.1); /* 軽い背景色を追加 */
   border-left: 4px solid #baafa3; /* 左側にラインを追加 */

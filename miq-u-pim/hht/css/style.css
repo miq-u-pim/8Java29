@@ -98,6 +98,14 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Portfolio に戻るボタンのコンテナ */
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* 適切な余白を追加 */
+}
+
 /* Portfolio に戻るボタン */
 .back-button {
     background-color: #e3e3e3;
@@ -109,6 +117,7 @@ body {
     border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 
 .back-button:hover {
