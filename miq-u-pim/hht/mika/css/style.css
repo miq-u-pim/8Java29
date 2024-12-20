@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "lithos-pro", sans-serif;
+    src: url('path/to/LithosProBlack.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+body {
+    background-color: #333333;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#MIKATYPE_wrapper {
+    width: 1120px;
+    margin: 0 auto;
+}
+
+canvas {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    font-family: "lithos-pro", sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0;
+    padding: 30px 0; /* ヘッダーの縦幅を広く */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Portfolio に戻るボタン */
+.back-button-container {
+    display: flex;
+    justify-content: center; /* 中央揃え */
+    margin-top: 30px; /* ボタンの位置を下に移動 */
+}
+
+.back-button {
+    background-color: #e3e3e3;
+    color: #333333;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #d4bff0;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    color: #fff;
+    width: 100%; /* 横幅100%に設定 */
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.footer small {
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 10px;
+}

@@ -72,6 +72,12 @@ table th, table td {
     margin: 0 auto; /* 中央に寄せる */
   }
 
+  /* その他の要素も中央寄せする場合は、必要に応じて個別に調整 */
+  .about-box, .hobby-box, .experience, .skills, .course-section {
+    margin-left: auto;
+    margin-right: auto; /* それぞれ中央揃え */
+  }
+
   /* 表の横並び表示 */
   .experience-content, .profile-buttons {
     display: flex;

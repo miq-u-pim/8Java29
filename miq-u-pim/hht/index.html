@@ -3,44 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Halloween Typing</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;500&family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/yhk0czz.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.ico">
+    <title>Happy Halloween Typing</title>
 </head>
 <body>
-    <!-- ヘッダーの追加 -->
-    <header style="background-color: #333333; color: white; padding: 30px 0; text-align: center; width: 100%; margin: 0;">
-        <h1>HAPPY HALLOWEEN TYPING</h1>
-    </header>    
 
-    <!-- トップページ -->
-    <div id="homePage" class="home-page">
-        <div class="button-container">
-            <!-- START ボタンをリンクに変更 -->
-            <a href="game.html">
-                <button id="startBtn" class="button">
-                    <img src="images/start.png" alt="START Button">
-                </button>
-            </a>
+    <header style="background-color: #333333; color: white; padding: 20px 0; text-align: center;">
+        <h1>HAPPY HALLOWEEN TYPING</h1>
+    </header>
+
+    <div class="container" id="top-page">
+        <div class="course-description-container">
+            <p class="course-description">select a course to begin</p>
+            <div class="course-buttons">
+                <button onclick="startGame('fruit')">FRUIT</button>
+                <button onclick="startGame('animal')">ANIMAL</button>
+                <button onclick="startGame('java')">JAVA</button>
+            </div>
+        </div>                
+    </div>
+    
+    <div class="container" id="game-page">
+        <div class="timer">
+            <div class="timer-bar" id="timer-bar"></div>
         </div>
-        <div class="image-container">
-            <img src="images/typing.png" alt="Game Image" class="game-image">
-        </div>
-        <!-- 戻るボタンを追加 -->
+        <p><span id="time-left">30</span></p> <!-- 数字のみ表示 -->
+        <div class="word" id="current-word"></div>
+        <input type="text" id="word-input" placeholder="Type here">
         <div class="back-button-container">
-            <a href="../index.html" class="back-button">Portfolio に戻る</a>
+            <a onclick="goToTop()" class="back-button">TOPに戻る</a>
         </div>
     </div>
+    
+    <div class="container" id="clear-page">
+        <div class="message-box">
+            <p id="random-message"></p>
+        </div>
+        <h1>GAME CLEAR</h1>
+        <p>Your score <span id="final-score"></span></p>
+        <div class="back-button-container">
+            <a onclick="goToTop()" class="back-button">TOPに戻る</a>
+        </div>
+    </div>     
 
-    <script src="js/script.js"></script>
-
+    <div class="back-button-container duo-buttons">
+        <a href="../index.html" class="back-button">Portfolio に戻る</a>
+        <a href="./mika/index.html" class="back-button">MIKATYPE に進む</a>
+    </div>
+    
     <footer class="footer">
         <address class="copyright">
-          <small class="copyright-text">&copy; 2024 - 2025 Miku Yamashita ALL RIGHT RESERVED.</small>
+            <small class="copyright-text">&copy; 2024 - 2025 Miku Yamashita ALL RIGHT RESERVED.</small>
         </address>
     </footer>
 
+    <script>
+        const words = {
+            fruit: [
+                "acerola", "apple", "apricot", "avocado", "banana", "blackcurrant", "blueberry", "cherry", "chestnut", "coconut", "dragon fruit", "durian", "fig", "grapefruit", "grape", "guava", "kiwi", "lemon", "litchi", "lime", "loquat", "mango", "melon", "muscat", "muskmelon", "orange", "papaya", "peach", "pear", "persimmon", "pineapple", "plum", "pomegranate", "raisin", "raspberry", "strawberry", "watermelon", "yuzu"
+            ],
+            animal: [
+                "bear", "buffalo", "camel", "cat", "cheetah", "chicken", "crocodile", "deer", "dog", "donkey", "elephant", "fox", "frog", "giraffe", "goat", "gorilla", "hamster", "hedgehog", "hippopotamus", "horse", "hyena", "jaguar", "kangaroo", "koala", "leopard", "lion", "lizard", "mole", "monkey", "mouse", "panda", "panther", "pig", "polar bear", "pony", "rabbit", "raccoon", "raccoon dog", "rhinoceros", "seal", "sea lion", "sheep", "skunk", "snake", "squirrel", "tiger", "turtle", "wild boar", "wolf", "zebra"
+            ],
+            java: [
+                "abstract", "assert", "boolean", "break", "byte", "case", "catch", "cher", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while"
+            ]
+        };
+
+        let currentCourse = "";
+        let timer = 60;
+        let timerInterval;
+        let score = 0;
+
+        function startGame(course) {
+            currentCourse = course;
+            document.getElementById("top-page").style.display = "none";
+            document.getElementById("game-page").style.display = "block";
+            score = 0;
+            timer = 30;
+            document.getElementById("time-left").textContent = timer;
+            updateTimerBar();
+            startTimer();
+            nextWord();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timer -= 1;
+                document.getElementById("time-left").textContent = timer;
+                updateTimerBar();
+
+                if (timer <= 0) {
+                    clearInterval(timerInterval);
+                    endGame();
+                }
+            }, 1000); // Adjusted to count every second
+        }
+
+        function updateTimerBar() {
+            const timerBar = document.getElementById("timer-bar");
+            timerBar.style.width = (timer / 30) * 100 + "%";
+        }
+
+        function nextWord() {
+            const wordList = words[currentCourse];
+            const randomIndex = Math.floor(Math.random() * wordList.length);
+            const randomWord = wordList[randomIndex];
+            document.getElementById("current-word").textContent = randomWord;
+        }
+
+        document.getElementById("word-input").addEventListener("input", function (e) {
+            const input = e.target.value;
+            const currentWord = document.getElementById("current-word").textContent;
+            if (input === currentWord) {
+                score++;
+                e.target.value = "";
+                nextWord();
+            }
+        });
+
+        function displayRandomMessage() {
+            const messages = [
+                "おつかれさまでした！<br>またプレイしてね！",
+                "がんばりましたね！すごいです！<br>またプレイしてね！",
+                "よくできました！さすがです！<br>またプレイしてね！"
+            ];
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById("random-message").innerHTML = messages[randomIndex];
+        }
+
+        // ゲーム終了時に呼び出す
+        function endGame() {
+            document.getElementById("game-page").style.display = "none";
+            document.getElementById("clear-page").style.display = "block";
+            document.getElementById("final-score").textContent = score;
+            displayRandomMessage(); // ランダムメッセージを表示
+
+            // ゲームクリアページにはtop.pngを非表示
+            document.body.style.backgroundImage = "none";
+            // ゲームクリアページの背景を単色に変更
+            document.body.style.backgroundImage = "none";
+        }
+
+        function goToTop() {
+            document.getElementById("top-page").style.display = "block";
+            document.getElementById("game-page").style.display = "none";
+            document.getElementById("clear-page").style.display = "none";
+
+            // トップページのスコア表示をリセット
+            document.getElementById("final-score").textContent = "";
+
+            // トップページの背景画像を設定
+            document.body.style.backgroundImage = "url('./images/top.png')";
+            document.body.style.backgroundSize = "470px auto";
+            document.body.style.backgroundPosition = "center 49%";
+            document.body.style.backgroundRepeat = "no-repeat";
+        }
+        
+    </script>
 </body>
 </html>
