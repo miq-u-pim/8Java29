@@ -9,7 +9,6 @@ html, body {
 }
 
 /* 共通フォント設定 */
-/* M PLUS Rounded 1c フォント設定 */
 .m-plus-rounded-1c-bold {
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 700;
@@ -24,8 +23,7 @@ html, body {
   font-style: normal;
 }
 
-/* レイアウト */
-
+/* レイアウト設定 */
 /* ヘッダー */
 header {
   background-color: #333333;
@@ -62,9 +60,12 @@ h2:hover::after {
   width: 100px;
 }
 
+main {
+  padding: 20px;
+}
+
 /* セクション設定 */
 .section {
-  margin: 40px 20px;
   width: 100%;
 }
 
@@ -135,6 +136,7 @@ footer {
   margin-top: 40px;
 }
 
+/* トップリンク */
 .top-link {
   background-color: #e3e3e3;
   color: #333333;

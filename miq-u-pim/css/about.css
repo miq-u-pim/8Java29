@@ -19,13 +19,16 @@ header h3 {
   width: 100%;
 }
 
+.wrapper{
+  padding: 20px; /* 画面幅が狭いときに左右に余白を追加 */
+}
+
 /* デフォルト（モバイル・タブレット用）のスタイル */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f8f8f8;
   color: #333;
   margin: 0;
-  padding: 0 20px; /* 画面幅が狭いときに左右に余白を追加 */
 }
 
 table {
@@ -54,7 +57,7 @@ table th, table td {
 
 /* 画面幅が768px以上のデバイスに適用 */
 @media screen and (min-width: 768px) {
-  body {
+  .wrapper {
     padding: 0 50px; /* 左右の余白を広げる */
   }
 
@@ -67,8 +70,8 @@ table th, table td {
 /* 画面幅が1024px以上のデバイスに適用 (デスクトップモニターサイズ) */
 @media screen and (min-width: 1024px) {
   /* ボディに適用: 横幅50%、中央寄せ */
-  body {
-    width: 50%; /* 横幅を50%に設定 */
+  .wrapper {
+    width: 43%; /* 横幅を50%に設定 */
     margin: 0 auto; /* 中央に寄せる */
   }
 
@@ -332,34 +335,34 @@ h1.small-heading {
 .experience-list {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.8;
+  margin: 0 auto; /* リスト全体を中央に寄せる */
+  text-align: left; /* リストのテキストを左揃えに戻す */
+  display: block; /* リスト全体をブロック要素として扱う */
 }
 
 .experience-list li {
   margin-bottom: 15px;
-  padding-left: 40px;
-  position: relative;
-  font-size: 0.85rem; /* 少し小さく設定 */
+  position: relative; /* 相対位置を設定 */
+  font-size: 0.85rem;
   font-weight: 400;
   color: #666;
+  padding-left: 40px; /* 数字分の余白を確保 */
 }
 
 .experience-list li .number-circle {
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: absolute; /* 絶対位置で配置 */
+  left: 0; /* 左端に配置 */
+  top: 50%; /* 垂直方向で中央に揃える */
+  transform: translateY(-50%); /* 垂直方向の中央揃え調整 */
   font-size: 1.4rem;
   color: #baafa3;
   font-weight: 700;
   background-color: transparent;
-  width: auto;
-  height: auto;
-  line-height: 1.6rem;
-  text-align: center;
-  vertical-align: middle; /* 数字と文字の縦のずれを調整 */
+  width: 1.6em; /* 一貫した幅を設定 */
+  height: 1.6em; /* 一貫した高さを設定 */
+  line-height: 1.6em; /* テキストを中央に揃える */
+  text-align: center; /* 数字を中央揃え */
+  border-radius: 50%; /* 円形にする場合 */
 }
 
 /* ①の前に表示される中点（・）を削除 */

@@ -30,7 +30,7 @@
         <div class="timer">
             <div class="timer-bar" id="timer-bar"></div>
         </div>
-        <p><span id="time-left">30</span></p> <!-- 数字のみ表示 -->
+        <p><span id="time-left">15</span></p> <!-- 数字のみ表示 -->
         <div class="word" id="current-word"></div>
         <input type="text" id="word-input" placeholder="Type here">
         <div class="back-button-container">
@@ -43,7 +43,7 @@
             <p id="random-message"></p>
         </div>
         <h1>GAME CLEAR</h1>
-        <p>Your score <span id="final-score"></span></p>
+        <p>your score <span id="final-score"></span></p>
         <div class="back-button-container">
             <a onclick="goToTop()" class="back-button">TOPに戻る</a>
         </div>
@@ -74,7 +74,7 @@
         };
 
         let currentCourse = "";
-        let timer = 60;
+        let timer = 15;
         let timerInterval;
         let score = 0;
 
@@ -83,7 +83,7 @@
             document.getElementById("top-page").style.display = "none";
             document.getElementById("game-page").style.display = "block";
             score = 0;
-            timer = 30;
+            timer = 15;
             document.getElementById("time-left").textContent = timer;
             updateTimerBar();
             startTimer();
@@ -105,7 +105,7 @@
 
         function updateTimerBar() {
             const timerBar = document.getElementById("timer-bar");
-            timerBar.style.width = (timer / 30) * 100 + "%";
+            timerBar.style.width = (timer / 15) * 100 + "%";
         }
 
         function nextWord() {
@@ -127,12 +127,20 @@
 
         function displayRandomMessage() {
             const messages = [
-                "おつかれさまでした！<br>またプレイしてね！",
-                "がんばりましたね！すごいです！<br>またプレイしてね！",
-                "よくできました！さすがです！<br>またプレイしてね！"
+                "おつかれさまでした！<br>またプレイしてね (^^)/",
+                "がんばりましたね！<br>またプレイしてね (^^)/",
+                "上達していますね！<br>またプレイしてね (^^)/",
+                "良い調子ですね！<br>またプレイしてね (^^)/"
             ];
+
             const randomIndex = Math.floor(Math.random() * messages.length);
-            document.getElementById("random-message").innerHTML = messages[randomIndex];
+            let selectedMessage = messages[randomIndex];
+
+            // `！` と `(^^)/` を色付け
+            selectedMessage = selectedMessage.replace(/！/g, '<span style="color: rgb(255, 123, 0);">！</span>');
+            selectedMessage = selectedMessage.replace(/\(\^\^\)\/+/g, '<span style="color: rgb(255, 123, 0);">(^^)/</span>');
+
+            document.getElementById("random-message").innerHTML = selectedMessage;
         }
 
         // ゲーム終了時に呼び出す
