@@ -473,12 +473,3 @@ footer {
   font-style: normal;
   position: relative;
 }
-
-.footer:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%; /* 横幅いっぱいにラインを表示 */
-  border-top: 2px solid #ddd; /* 横幅いっぱいのライン */
-}

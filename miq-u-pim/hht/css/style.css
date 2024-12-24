@@ -288,41 +288,159 @@ button:hover {
     display: block;
 }
 
-/* メディアクエリ */
+/* メディアクエリ：モバイルサイズ */
 @media screen and (max-width: 932px) {
-    #clear-page {
-        background-position: center 15%;
-        background-size: 95%;
+
+    /* トップページ */
+    body {
+        background-image: url('../images/top.png');
+        background-size: 410px auto;
+        background-position: center 48%;  /* 背景の位置を中央に調整 */
     }
 
-    #clear-page h1 {
-        margin-top: -55px;
+    /* select a course to beginの位置を上げる */
+    .course-description {
+        margin-top: -30px;  /* 説明文の位置を少し上げる */
     }
 
-    #clear-page p {
-        margin-top: 95px;
+    /* ボタン群の位置を下げる */
+    .course-buttons {
+        margin-top: -15px;  /* ボタン群を下げる */
     }
-}
 
-/* モニター全画面で画像サイズを@media screen and (max-width: 932px)と同じにする */
-@media screen and (min-width: 1980px) {
+    .course-selection, .button-container {
+        margin-top: -60px;  /* 上部の余白を減らす */
+    }
+
+    .back-button-container.duo-buttons a {
+        font-size: 15px;
+        padding: 9px 23px;
+    }
+
     /* ゲームページ */
     #game-page {
-        background-position: center 15% !important;
-        background-size: 95% !important;
+        background-position: center 8%;
+        background-size: 95%;  /* 背景画像のサイズ調整 */
+    }
+
+    /* current-word と word-input の位置を上げる */
+    #current-word, #word-input {
+        margin-top: -20px;  /* 位置を上げる */
+    }
+
+    /* TOPに戻るボタンの位置を上げる */
+    .back-button-container {
+        margin-top: 50px;  /* ボタンの上部余白を減らす */
+    }
+
+    /* タイムバーの位置を上げる */
+    .timer {
+        margin-top: -20px;  /* タイムバーの位置を少し上げる */
+    }
+
+    .back-button-container.duo-buttons a {
+        font-size: 15px;
+        padding: 9px 23px;
+    }
+
+    /* ゲームページのボタン */
+    #word-input {
+        width: 55%;  /* 入力フォームの幅を狭く */
+        font-size: 20px;  /* フォントサイズを小さく */
+        margin-top: 15px;  /* 入力フォームの位置を上げる */
     }
 
     /* クリアページ */
     #clear-page {
-        background-position: center 15% !important;
-        background-size: 95% !important;
+        background-position: center 10%;
+        background-size: 95%;
     }
 
+    /* random-message の白枠の縦幅を縮める */
+    #random-message {
+        margin-top: -30px;  /* メッセージの位置を上げる */
+        padding: 0px 10px;  /* 上下の余白を縮める */
+        font-size: 12px;  /* フォントサイズを小さくする */
+    }
+
+    /* GAME CLEARの位置を上げる */
     #clear-page h1 {
-        margin-top: -55px !important;
+        margin-top: -75px;
     }
 
+    /* your score の文字サイズを大きくする */
     #clear-page p {
-        margin-top: 95px !important;
+        font-size: 16px;  /* 文字サイズを大きく */
+        margin-top: 60px;  /* スコアの位置を少し下げる */
+    }
+
+    .back-button-container {
+        margin-top: 10px;
+    }
+
+    .back-button-container.duo-buttons a {
+        font-size: 15px;
+        padding: 9px 23px;
+    }
+}
+
+/* ゲームページ（モニター画面、幅933px以上） */
+@media screen and (min-width: 933px) {
+    /* ゲームページの背景画像サイズを小さく表示 */
+    #game-page {
+        background-size: 57% !important;  /* 画像のサイズを80%に縮小 */
+    }
+
+    /* タイマーバーのサイズを小さく */
+    #game-page .timer {
+        height: 15px;  /* タイマーバーの高さを15pxに縮小 */
+        width: 55%;  /* 横幅を80%に縮小 */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* タイマーバーの進行バーの高さを調整 */
+    #game-page .timer-bar {
+        height: 100%;  /* 高さは変更しない（親の高さに合わせる） */
+    }
+
+    /* 入力フォーム（word-input）の横幅を狭める */
+    #word-input {
+        width: 25%;  /* 横幅を30%に縮小 */
+        margin-top: 10px;  /* 少し上げる */
+    }
+
+    /* TOPに戻るボタンの位置を下げる */
+    #game-page .back-button-container {
+        margin-top: 90px;  /* 元々の位置より少し下げる */
+    }
+}
+
+/* クリアページ（モニター画面、幅933px以上） */
+@media screen and (min-width: 933px) {
+    /* クリアページの背景画像サイズを小さく表示 */
+    #clear-page {
+        background-size: 57% !important;  /* 画像のサイズを80%に縮小 */
+    }
+
+    /* GAME CLEARの文字位置を上げる */
+    #clear-page h1 {
+        margin-top: -50px;  /* 元々の位置より上げる */
+    }
+
+    /* your scoreの文字位置を下げる */
+    #clear-page p {
+        margin-top: 110px;  /* 文字位置を少し下げる */
+    }
+
+    /* ランダムメッセージの白枠の縦幅を狭くする */
+    #clear-page #random-message {
+        padding: 8px 15px;  /* 上下のパディングを狭くして縦幅を縮小 */
+        font-size: 1rem;  /* フォントサイズも少し小さく */
+    }
+
+    /* TOPに戻るボタンの位置を下げる */
+    #game-page .back-button-container {
+        margin-top: 150px;  /* 元々の位置より少し下げる */
     }
 }
